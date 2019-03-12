@@ -35,12 +35,15 @@ public class Quick{
         return start;
       }
       else{
-        // if the current start is equal than the pivot 
+        // if the current start is equal than the pivot
         data[0] = data[start - 1]; // set the pivot to start - 1
         data[start - 1] = pivot; // swaps the pivot and the start
         return start - 1;
       }
     }
 
+    public static void main(String[] args){
+      System.out.println(partition([2,3,4,1], 0, 3));
+    }
 
 }
