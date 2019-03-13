@@ -25,8 +25,8 @@ public class Quick{
         index = end;
       }
      //  int pivot = data[index]; // setting the pivot
-      data[index] = data[0];
-      data[0] = pivot;
+      data[index] = data[start];
+      data[start] = pivot;
       start++; // pivot found now search through the rest of the data
       // while it doesn't meet in the middle
       while (start < end){
@@ -88,12 +88,12 @@ public class Quick{
     }
 
     public static void main(String[] args){
-      int[] array = new int[] {4,0,3,2};
+      int[] array = new int[] {1,1,1,1,1,1,1,1,1,1};
       //System.out.println(partition(array, 0, 2));
 
       System.out.println(Arrays.toString(array));
       for (int i = 0; i < array.length; i++){
-        System.out.println("term " + i + ": "+ quickselect(array, i));
+        System.out.println("T"+ i + ": "+ quickselect(array, i));
       }
 
     }
