@@ -10,6 +10,7 @@ public class Quick{
     public static int partition ( int [] data, int start, int end){
       // picking random pivot at index
       int index = (int)(Math.random() * (end - start + 1)) + start;
+    //  System.out.println(index);
       int pivot = data[index]; // setting the pivot
       data[index] = data[0];
       data[0] = pivot;
@@ -43,7 +44,8 @@ public class Quick{
     }
 
     public static void main(String[] args){
-      System.out.println(partition([2,3,4,1], 0, 3));
+      int[] data = {2,-1,0,100};
+      System.out.println(partition(data, 0, 3));
     }
 
 }
