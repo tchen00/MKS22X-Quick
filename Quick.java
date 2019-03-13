@@ -12,14 +12,15 @@ public class Quick{
     */
     public static int partition ( int [] data, int start, int end){
       // picking random pivot at index
+      //if (start >= end) return;
       int index = (int)(Math.random() * (end - start + 1)) + start;
-    //  System.out.println(index);
+     //System.out.println(index);
       int pivot = data[index]; // setting the pivot
       data[index] = data[0];
       data[0] = pivot;
       start++; // pivot found now search through the rest of the data
       // while it doesn't meet in the middle
-      while (start != end){
+      while (start < end){
         // if the number is greater than pivot
         if (data[start] > pivot){
           // swap the start and end
@@ -37,8 +38,7 @@ public class Quick{
         data[0] = data[start];
         data[start] = pivot;
         return start;
-      }
-      else{
+      } else{
         // if the current start is equal than the pivot
         data[0] = data[start - 1]; // set the pivot to start - 1
         data[start - 1] = pivot; // swaps the pivot and the start
@@ -63,12 +63,26 @@ public class Quick{
       return data[index];
     }
 
+    public static int[] quicksort(int[] data){
+      int low  = 0;
+      int high = data.length - 1;
+      if (low >= high){
+        return data;
+      }
+      pivot = partition(data, low, hi);
+      quicksort(data,low, pivot - 1);
+      quicksort(data, pivot + 1, high); 
+    }
+
     public static void main(String[] args){
-      int[] array = new int[] {4,10,2};
+      int[] array = new int[] {4,10,2,1,0};
+      //System.out.println(partition(array, 0, 2));
+
       System.out.println(Arrays.toString(array));
       for (int i = 0; i < array.length; i++){
         System.out.println("term " + i + ": "+ quickselect(array, i));
       }
+
     }
 
 }
