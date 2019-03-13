@@ -63,15 +63,19 @@ public class Quick{
       return data[index];
     }
 
-    public static int[] quicksort(int[] data){
+    public void quicksort(int[] data){
       int low  = 0;
       int high = data.length - 1;
-      if (low >= high){
-        return data;
+      quicksortH(data, low, high);
+    }
+
+    public void quicksortH(int[] data, int lo, int hi){
+      if (lo >= hi){
+        return;
       }
-      pivot = partition(data, low, hi);
-      quicksort(data,low, pivot - 1);
-      quicksort(data, pivot + 1, high); 
+      int pivot = partition(data, lo, hi);
+      quicksortH(data,lo, pivot - 1);
+      quicksortH(data, pivot + 1, hi);
     }
 
     public static void main(String[] args){
