@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 public class Quick{
   /*Modify the array such that:
     *1. Only the indices from start to end inclusive are considered in range
@@ -43,9 +46,29 @@ public class Quick{
       }
     }
 
+    /*return the value that is the kth smallest value of the array.
+    */
+    public static int quickselect(int[] data, int k){
+      int start = 0;
+      int end = data.length - 1;
+      int index = partition(data, start, end);
+      while (index != k){
+        if (index > k){
+          end = index - 1;
+        } else {
+          start = index + 1;
+        }
+        index = partition(data,start,end);
+      }
+      return data[index];
+    }
+
     public static void main(String[] args){
-      int[] data = {2,-1,0,100};
-      System.out.println(partition(data, 0, 3));
+      int[] array = new int[] {4,10,2};
+      System.out.println(Arrays.toString(array));
+      for (int i = 0; i < array.length; i++){
+        System.out.println("term " + i + ": "+ quickselect(array, i));
+      }
     }
 
 }
