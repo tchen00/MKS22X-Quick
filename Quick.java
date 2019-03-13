@@ -11,11 +11,13 @@ public class Quick{
     *@return the index of the final position of the pivot element.
     */
     public static int partition ( int [] data, int start, int end){
-      // picking random pivot at index
-      //if (start >= end) return;
-      int index = (int)(Math.random() * (end - start + 1)) + start;
-     //System.out.println(index);
-      int pivot = data[index]; // setting the pivot
+      if (start >= end) return start;
+      // picking median pivot at index
+      int[] tempA = new int[] {data[start], data[end], data[data.length/2]};
+      Arrays.sort(tempA);
+      int pivot = tempA[1];
+      int index = data.length/2;
+     //  int pivot = data[index]; // setting the pivot
       data[index] = data[0];
       data[0] = pivot;
       start++; // pivot found now search through the rest of the data
@@ -79,7 +81,7 @@ public class Quick{
     }
 
     public static void main(String[] args){
-      int[] array = new int[] {4,10,2,1,0};
+      int[] array = new int[] {4,0,3,2};
       //System.out.println(partition(array, 0, 2));
 
       System.out.println(Arrays.toString(array));
