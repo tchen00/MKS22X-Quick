@@ -14,9 +14,16 @@ public class Quick{
       if (start >= end) return start;
       // picking median pivot at index
       int[] tempA = new int[] {data[start], data[end], data[data.length/2]};
-      Arrays.sort(tempA);
-      int pivot = tempA[1];
+      Arrays.sort(tempA); // sorting the array
+      int pivot = tempA[1]; // median of this array
       int index = data.length/2;
+      // checking to see if start and end has the pivot
+      if (data[start] == pivot){
+        index = start;
+      }
+      else if (data[end] == pivot){
+        index = end;
+      }
      //  int pivot = data[index]; // setting the pivot
       data[index] = data[0];
       data[0] = pivot;
