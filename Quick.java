@@ -89,16 +89,18 @@ public class Quick{
     }
 
     public static void main(String[] args){
-      int[] ary = new int[40];
-           for(int i = 0; i < ary.length;i++){
-             ary[i] = (int)(Math.random() * 100);
-           }
-           System.out.println(Arrays.toString(ary));
+      int[] ary = new int[50000];
 
+       for(int i = 0; i < ary.length;i++){
+         ary[i] = (int)(Math.random() * 10 );
+       }
+          // System.out.println(Arrays.toString(ary));
+          /*
            for (int i = 0; i < ary.length; i++){
              System.out.println("T"+ i + ": "+ quickselect(ary, i));
            }
-           System.out.println(Arrays.toString(ary));
+          */
+           //System.out.println(Arrays.toString(ary));
 
            quicksort(ary);
            //Arrays.sort(ary);
