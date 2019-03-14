@@ -63,31 +63,40 @@ public class Quick{
     public static int quickselect(int[] data, int k){
       int start = 0;
       int end = data.length - 1;
+      // get infex from parition
       int index = partition(data, start, end);
       while (index != k){
+        // if the index is greater than k make the end index - 1 bc you know its already greater
         if (index > k){
           end = index - 1;
-        } else {
-          start = index + 1;
         }
+          // else you know that index is less than the k
+          else {
+            start = index + 1;
+          }
         index = partition(data,start,end);
       }
+      // when done with while loop return # at index of data
       return data[index];
     }
 
-    // STILL BROKEN OOPS
     public static void quicksort(int[] data){
+      // setting low to 0 and high to last index in array
       int low  = 0;
       int high = data.length - 1;
       quicksortH(data, low, high);
     }
 
     public static void quicksortH(int[] data, int lo, int hi){
+      // if low is greater than or equal to high -- end of method
       if (lo >= hi){
         return;
       }
+      // basically code Mr. K gave us in class
       int pivot = partition(data, lo, hi);
+      // sorting lower not including pivot
       quicksortH(data,lo, pivot - 1);
+      // sorting higher including pivot
       quicksortH(data, pivot + 1, hi);
     }
       public static void main(String[]args){
