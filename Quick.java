@@ -72,13 +72,14 @@ public class Quick{
       return data[index];
     }
 
-    public void quicksort(int[] data){
+    // STILL BROKEN OOPS 
+    public static void quicksort(int[] data){
       int low  = 0;
       int high = data.length - 1;
       quicksortH(data, low, high);
     }
 
-    public void quicksortH(int[] data, int lo, int hi){
+    public static void quicksortH(int[] data, int lo, int hi){
       if (lo >= hi){
         return;
       }
@@ -88,7 +89,7 @@ public class Quick{
     }
 
     public static void main(String[] args){
-      int[] array = new int[] {1,1,1,1,1,1,1,1,1,1};
+      int[] array = new int[] {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
       //System.out.println(partition(array, 0, 2));
 
       System.out.println(Arrays.toString(array));
@@ -96,6 +97,12 @@ public class Quick{
         System.out.println("T"+ i + ": "+ quickselect(array, i));
       }
 
+      int[] arr = { 2, 10, 15, 23, 0,  5};
+      System.out.println("Array: " + Arrays.toString(arr));
+      System.out.println(quickselect(arr,2));
+      //System.out.println("Array: " + Arrays.toString(arr));
+      quicksort(arr);
+      System.out.println("Array: " + Arrays.toString(arr));
     }
 
 }
