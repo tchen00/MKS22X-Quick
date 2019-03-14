@@ -72,7 +72,7 @@ public class Quick{
       return data[index];
     }
 
-    // STILL BROKEN OOPS 
+    // STILL BROKEN OOPS
     public static void quicksort(int[] data){
       int low  = 0;
       int high = data.length - 1;
@@ -89,20 +89,20 @@ public class Quick{
     }
 
     public static void main(String[] args){
-      int[] array = new int[] {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-      //System.out.println(partition(array, 0, 2));
+      int[] ary = new int[40];
+           for(int i = 0; i < ary.length;i++){
+             ary[i] = (int)(Math.random() * 100);
+           }
+           System.out.println(Arrays.toString(ary));
 
-      System.out.println(Arrays.toString(array));
-      for (int i = 0; i < array.length; i++){
-        System.out.println("T"+ i + ": "+ quickselect(array, i));
-      }
+           for (int i = 0; i < ary.length; i++){
+             System.out.println("T"+ i + ": "+ quickselect(ary, i));
+           }
+           System.out.println(Arrays.toString(ary));
 
-      int[] arr = { 2, 10, 15, 23, 0,  5};
-      System.out.println("Array: " + Arrays.toString(arr));
-      System.out.println(quickselect(arr,2));
-      //System.out.println("Array: " + Arrays.toString(arr));
-      quicksort(arr);
-      System.out.println("Array: " + Arrays.toString(arr));
+           quicksort(ary);
+           //Arrays.sort(ary);
+           System.out.println(Arrays.toString(ary));
     }
 
 }
