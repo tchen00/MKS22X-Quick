@@ -89,7 +89,13 @@ public class Quick{
 
     public static void quicksortH(int[] data, int lo, int hi){
       // if low is greater than or equal to high -- end of method
+      /*
       if (lo >= hi){
+        return;
+      }
+      */
+      if (hi - lo <= 65){
+        insertionsort(data, lo, hi);
         return;
       }
       // basically code Mr. K gave us in class
@@ -99,6 +105,21 @@ public class Quick{
       // sorting higher including pivot
       quicksortH(data, pivot + 1, hi);
     }
+
+    public static void insertionsort(int[] data, int lo, int hi){
+      int start = lo + 1;
+      for (int i = start; i <= hi; i++){
+        int temp = data[i];
+        // iteration through the array
+        int output = i;
+        while(output > lo && temp < data[output - 1]){
+          data[output] = data[output - 1];
+          output--;
+        }
+        data[output] = temp;
+      }
+    }
+
       public static void main(String[]args){
         System.out.println("Size\t\tMax Value\tquick/builtin ratio ");
         int[]MAX_LIST = {1000000000,500,10};
